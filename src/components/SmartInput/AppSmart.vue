@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>Smart Input</h4>
+    <h1>Smart Input</h1>
     <form>
       <div class="progress">
         <div class="progress-bar" :style="progressStyle"></div>

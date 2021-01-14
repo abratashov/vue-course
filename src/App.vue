@@ -2,6 +2,8 @@
   <div align="center">
     <div id="app" class="wrapper">
       <app-smart></app-smart>
+      <hr>
+      <questions-app></questions-app>
     </div>
   </div>
 </template>
@@ -9,11 +11,13 @@
 <script>
 
 import AppSmart from './components/SmartInput/AppSmart'
+import QuestionsApp from './components/QuestionsApp/QuestionsApp'
 
 export default {
   name: 'app',
   components: {
-    AppSmart
+    AppSmart,
+    QuestionsApp
   },
   data () {
     return {}
