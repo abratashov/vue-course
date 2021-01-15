@@ -3,23 +3,28 @@
     <h1>Questions App</h1>
     <div v-if="!completed">
       <div v-for="question in unansweredQuestions">
-        <question-field :id="question.id"
-                        :type="question.type"
-                        :title="question.title"
-                        :possible_answers="question.possible_answers"
-                        :answered="question.answered"
-                        @answered="onAnswer"
-                        >
-        </question-field>
+        <transition name="fade" mode="out-in">
+          <question-field :id="question.id"
+                          :type="question.type"
+                          :title="question.title"
+                          :possible_answers="question.possible_answers"
+                          :answered="question.answered"
+                          @answered="onAnswer"
+                          :key="question.id"
+                          >
+          </question-field>
+        </transition>
       </div>
     </div>
-    <div v-else>
-      Answers:
-      <div v-for="question in questions">
-        {{question.title}}
-        {{question.answers}}
+    <transition name="fade" >
+      <div v-if="completed">
+        Answers:
+        <div v-for="question in questions">
+          {{question.title}}
+          {{question.answers}}
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -75,3 +80,12 @@ export default {
   },
 }
 </script>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+</style>
