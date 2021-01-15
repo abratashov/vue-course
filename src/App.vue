@@ -4,6 +4,9 @@
       <app-smart></app-smart>
       <hr>
       <questions-app></questions-app>
+      <hr>
+      <app-smart-vuex></app-smart-vuex>
+      <hr>
     </div>
   </div>
 </template>
@@ -12,12 +15,14 @@
 
 import AppSmart from './components/SmartInput/AppSmart'
 import QuestionsApp from './components/QuestionsApp/QuestionsApp'
+import AppSmartVuex from './components/SmartInputVuex/AppSmartVuex'
 
 export default {
   name: 'app',
   components: {
     AppSmart,
-    QuestionsApp
+    QuestionsApp,
+    AppSmartVuex,
   },
   data () {
     return {}
