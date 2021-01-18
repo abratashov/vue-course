@@ -8,6 +8,8 @@
       <app-smart-vuex></app-smart-vuex>
       <hr>
     </div>
+    <shop-app></shop-app>
+    <hr>
   </div>
 </template>
 
@@ -16,6 +18,7 @@
 import AppSmart from './components/SmartInput/AppSmart'
 import QuestionsApp from './components/QuestionsApp/QuestionsApp'
 import AppSmartVuex from './components/SmartInputVuex/AppSmartVuex'
+import ShopApp from './components/ShopApp/ShopApp'
 
 export default {
   name: 'app',
@@ -23,6 +26,7 @@ export default {
     AppSmart,
     QuestionsApp,
     AppSmartVuex,
+    ShopApp,
   },
   data () {
     return {}
