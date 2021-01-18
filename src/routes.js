@@ -7,6 +7,7 @@ import Cart from './components/ShopApp/Cart';
 import E404 from './components/ShopApp/E404';
 import Product from './components/ShopApp/Product';
 import Products from './components/ShopApp/Products';
+import OrderForm from './components/SmartInputVuex/AppSmartVuex';
 
 import {store} from './store'
 
@@ -31,6 +32,10 @@ const routes = [
   {
     path: '/cart',
     component: Cart,
+  },
+  {
+    path: '/checkout',
+    component: OrderForm,
   },
   {
     path: '*',

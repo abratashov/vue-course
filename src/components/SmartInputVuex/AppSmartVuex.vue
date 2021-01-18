@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Smart Input Vuex</h1>
-    <form>
+    <form v-on:submit.prevent>
       <div class="progress">
         <div class="progress-bar" :style="progressStyle"></div>
       </div>
@@ -14,7 +14,10 @@
                      @onchange="setValue"
                      ></smart-input>
       </div>
-      <button class="btn btn-primary" :disabled="!allFieldsCorrect">
+      <button class="btn btn-primary"
+              :disabled="!allFieldsCorrect"
+              @click="submitOrder(products)"
+      >
         Send Data
       </button>
     </form>
@@ -24,6 +27,7 @@
 <script>
 
 import { mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 import SmartInput from '../SmartInput/SmartInput';
 
 export default {
@@ -31,7 +35,8 @@ export default {
     SmartInput
   },
   computed: {
-    ...mapGetters(['fields']),
+    ...mapGetters('order', {fields: 'fields'}),
+    ...mapGetters('cart', {products: 'products'}),
     progressStyle(){
       let filledFieldsAmount = this.fields.filter(field => field.isCorrect === true).length;
       let width = filledFieldsAmount / this.fields.length * 100;
@@ -43,12 +48,16 @@ export default {
     }
   },
   methods: {
+    ...mapActions('order', {
+      updateField: 'updateField',
+      submitOrder: 'submitOrder',
+    }),
     isCorrectField(field){
       return typeof(field.value) === 'string' &&
              !!field.value.match(field.pattern);
     },
     setValue(name, value, isCorrect){
-      this.$store.dispatch('updateField', {name, value, isCorrect});
+      this.updateField({name, value, isCorrect})
     },
   },
 }

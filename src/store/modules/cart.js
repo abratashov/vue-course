@@ -13,17 +13,23 @@ export default {
   },
   mutations: {
     add(state, id_product){
-      if(state.products.indexOf(id_product) === -1){
-        state.products.push(id_product);
+      let id = parseInt(id_product);
+
+      if(state.products.indexOf(id) === -1){
+        state.products.push(id);
       }
     },
     remove(state, id_product){
-      let index = state.products.indexOf(id_product);
+      let id = parseInt(id_product);
+      let index = state.products.indexOf(id);
 
       if(index !== -1){
         state.products.splice(index, 1);
       }
-    }
+    },
+    clearCart(state, _){
+      state.products = [];
+    },
   },
   actions: {
     add(store, id_product){
@@ -31,6 +37,9 @@ export default {
     },
     remove(store, id_product){
       store.commit('remove', id_product);
+    },
+    clearCart(store, _){
+      store.commit('clearCart', {});
     }
   }
 };

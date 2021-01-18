@@ -1,4 +1,7 @@
+import Vue from 'vue';
+
 export default {
+  namespaced: true,
   state: {
     fields: [
       {
@@ -45,6 +48,14 @@ export default {
     },
   },
   actions:{
-    updateField(store, payload){ store.commit('updateField', payload)},
+    updateField(store, payload) {
+      store.commit('updateField', payload)
+    },
+    submitOrder(store, payload) {
+      Vue.http.post('/api/order', {
+        ...store.state.fields,
+        order: payload,
+      });
+    }
   },
 }

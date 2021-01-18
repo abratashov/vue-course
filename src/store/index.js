@@ -5,14 +5,14 @@ Vue.use(Vuex);
 
 import cart from './modules/cart';
 import menu from './modules/menu';
-import orderFields from './modules/orderFields';
+import order from './modules/order';
 import products from './modules/products';
 
 export const store = new Vuex.Store({
   modules: {
     cart,
     menu,
-    orderFields,
+    order,
     products,
   },
   strict: process.env.NODE_ENV !== 'production',

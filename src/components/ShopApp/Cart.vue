@@ -26,12 +26,18 @@
           >
         Order Now
       </button>
+      <button @click="clearCart"
+          class="btn btn-primary"
+          >
+        Clear Cart
+      </button>
     </template>
   </div>
 </template>
 
 <script>
   import {mapGetters} from 'vuex';
+  import {mapActions} from 'vuex';
 
   export default {
     computed: {
@@ -51,9 +57,12 @@
       }
     },
     methods: {
+      ...mapActions('cart', {
+        clearCart: 'clearCart',
+      }),
       onOrder(){
         this.$router.push('/checkout');
-      }
+      },
     }
   }
 </script>
