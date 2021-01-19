@@ -7,6 +7,8 @@
       <hr>
       <app-smart-vuex></app-smart-vuex>
       <hr>
+      <slot-app></slot-app>
+      <hr>
     </div>
     <shop-app></shop-app>
     <hr>
@@ -18,6 +20,7 @@
 import AppSmart from './components/SmartInput/AppSmart'
 import QuestionsApp from './components/QuestionsApp/QuestionsApp'
 import AppSmartVuex from './components/SmartInputVuex/AppSmartVuex'
+import SlotApp from './components/SlotApp/SlotApp'
 import ShopApp from './components/ShopApp/ShopApp'
 
 export default {
@@ -26,6 +29,7 @@ export default {
     AppSmart,
     QuestionsApp,
     AppSmartVuex,
+    SlotApp,
     ShopApp,
   },
   data () {
